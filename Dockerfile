@@ -2,10 +2,11 @@ FROM python:3.9
 
 WORKDIR /app
 
-# Install system dependencies for mysqlclient
+# Install MySQL system dependencies
 RUN apt-get update && apt-get install -y \
     default-libmysqlclient-dev \
     gcc \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /app
